@@ -18,6 +18,16 @@ public class SIPFS_PAT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        // 
+        /**
+         * 
+         * if(controller.isThereDb) {
+         *  controller.displaySubjectScreen()
+         * } else {
+         *  controller.startNewDb()
+         * }
+         * 
+         */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new TaskAdd().setVisible(true);
