@@ -94,7 +94,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="spnUrgancy" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jSpinner1" min="-2" max="-2" attributes="0"/>
+                      <Component id="spnDueDate" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="57" max="32767" attributes="0"/>
               </Group>
@@ -126,7 +126,7 @@
                   </Group>
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jSpinner1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="spnDueDate" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="12" max="32767" attributes="0"/>
@@ -199,7 +199,7 @@
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner()"/>
           </AuxValues>
         </Component>
-        <Component class="javax.swing.JSpinner" name="jSpinner1">
+        <Component class="javax.swing.JSpinner" name="spnDueDate">
           <Properties>
             <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
               <SpinnerModel initial="now" stepSize="5" type="date"/>

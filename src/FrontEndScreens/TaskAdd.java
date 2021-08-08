@@ -5,6 +5,9 @@
  */
 package FrontEndScreens;
 
+import dataProcessing.TaskCRUD;
+import java.util.Date;
+
 /**
  *
  * @author glassiron
@@ -41,7 +44,7 @@ public class TaskAdd extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         spnUrgancy = new javax.swing.JSpinner();
-        jSpinner1 = new javax.swing.JSpinner();
+        spnDueDate = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -82,7 +85,7 @@ public class TaskAdd extends javax.swing.JFrame {
         spnUrgancy.setModel(new javax.swing.SpinnerNumberModel(1, 1, 5, 1));
         spnUrgancy.setToolTipText("");
 
-        jSpinner1.setModel(new javax.swing.SpinnerDateModel());
+        spnDueDate.setModel(new javax.swing.SpinnerDateModel());
 
         jLabel5.setText("Due Date:");
 
@@ -107,7 +110,7 @@ public class TaskAdd extends javax.swing.JFrame {
                         .addComponent(jLabel4)
                         .addGap(18, 18, 18)
                         .addComponent(spnUrgancy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -132,7 +135,7 @@ public class TaskAdd extends javax.swing.JFrame {
                     .addComponent(spnUrgancy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(spnDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
                 .addComponent(jButton1))
@@ -161,7 +164,22 @@ public class TaskAdd extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here: controller.addTaskButt(params)
+
+        String newTaskName = txfTaskName.getText();
+        String newTaskDescription =txaTaskDescription.getText();
+        int newTaskImportance = (Integer) spnImportance.getValue();
+        int newTaskUrgency = (Integer) spnUrgancy.getValue();
+        Date newTaskDueDate = (Date) spnDueDate.getValue();
+
+        TaskCRUD.addTask(
+                newTaskName,
+                newTaskDescription,
+                newTaskImportance,
+                newTaskUrgency,
+                newTaskDueDate
+        );
+
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -209,9 +227,9 @@ public class TaskAdd extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JSpinner spnDueDate;
     private javax.swing.JSpinner spnImportance;
     private javax.swing.JSpinner spnUrgancy;
     private javax.swing.JTextArea txaTaskDescription;
