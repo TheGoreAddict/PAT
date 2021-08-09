@@ -34,7 +34,7 @@ public class TaskAdd extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnTaskAdd = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txfTaskName = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
@@ -61,10 +61,10 @@ public class TaskAdd extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Task adding", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 0, 12))); // NOI18N
 
-        jButton1.setText("+");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnTaskAdd.setText("+");
+        btnTaskAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnTaskAddActionPerformed(evt);
             }
         });
 
@@ -114,7 +114,7 @@ public class TaskAdd extends javax.swing.JFrame {
                 .addContainerGap(57, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnTaskAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +138,7 @@ public class TaskAdd extends javax.swing.JFrame {
                     .addComponent(spnDueDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addComponent(jButton1))
+                .addComponent(btnTaskAdd))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -163,7 +163,7 @@ public class TaskAdd extends javax.swing.JFrame {
         // DO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnTaskAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTaskAddActionPerformed
 
         String newTaskName = txfTaskName.getText();
         String newTaskDescription =txaTaskDescription.getText();
@@ -171,16 +171,21 @@ public class TaskAdd extends javax.swing.JFrame {
         int newTaskUrgency = (Integer) spnUrgancy.getValue();
         Date newTaskDueDate = (Date) spnDueDate.getValue();
 
-        TaskCRUD.addTask(
+        boolean existSuccsess = TaskCRUD.addTask(
                 newTaskName,
                 newTaskDescription,
                 newTaskImportance,
                 newTaskUrgency,
                 newTaskDueDate
         );
+        if(existSuccsess){
+            System.out.println("saved");
+            
+            btnTaskAdd.setText("Saved!");
+            
+        }
 
-
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnTaskAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -218,7 +223,7 @@ public class TaskAdd extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnTaskAdd;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -16,10 +16,10 @@ public class TaskCRUD {
     
     
     public static boolean addTask(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate){
-        //System.out.println(newTaskName + newTaskImportance + newTaskDueDate);
+        System.out.println(newTaskName + newTaskImportance + newTaskDueDate);
         
         FileManager.existingFileCheck();
-        
-        return false;
+        FileManager.finishedFileTaskAdd(newTaskName, newTaskDescription, newTaskImportance, newTaskUrgency, newTaskDueDate);
+        return true;
     }
 }
