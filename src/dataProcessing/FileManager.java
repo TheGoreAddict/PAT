@@ -46,7 +46,7 @@ public class FileManager {
                     PrintWriter file = new PrintWriter(taskAddToFile);
 
                     int IDNum = 1;
-                    String IDCounter = "IDCounter" + "#" + IDNum;
+                    String IDCounter = fileNames[i] + "IDCounter" + "#" + IDNum;
                     file.println(IDCounter);
 
                     file.close();
@@ -60,10 +60,40 @@ public class FileManager {
         return true;
     }
 
+    public static void userDataCheckID() {
+
+        String taskID = " ";
+        String todoID = " ";
+        String assignmentID = " ";
+        String subjectID = " ";
+        
+        String[] fileNames = {"userData.txt", "TasksData.txt", "TodosData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
+        
+        for (int i = 1; i < 5; i++) {
+            
+            try {
+                File read = new File(fileNames[i]);
+                Scanner myReader = new Scanner(read);
+                
+                 while (myReader.hasNext()) {
+
+                String line = myReader.nextLine();
+                String[] details = line.split("#");
+                
+                
+                
+                 }
+                
+            } catch (FileNotFoundException ex) {
+            }
+            
+        }
+
+    }
+
     public static void finishedFileTaskAdd(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate) {
 
         //
-        
         //get taskID from userData.txt
         try {
 
