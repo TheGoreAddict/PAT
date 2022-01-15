@@ -80,7 +80,7 @@ public class FileManager {
                 String line = myReader.nextLine();
                 String[] details = line.split("#");
                 
-                
+                myReader.close();
                 
                  }
                 

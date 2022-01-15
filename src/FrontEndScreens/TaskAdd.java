@@ -171,13 +171,7 @@ public class TaskAdd extends javax.swing.JFrame {
         int newTaskUrgency = (Integer) spnUrgancy.getValue();
         Date newTaskDueDate = (Date) spnDueDate.getValue();
 
-        boolean existSuccsess = TaskCRUD.addTask(
-                newTaskName,
-                newTaskDescription,
-                newTaskImportance,
-                newTaskUrgency,
-                newTaskDueDate
-        );
+        boolean existSuccsess = TaskCRUD.addTask(newTaskName,newTaskDescription,newTaskImportance,newTaskUrgency, newTaskDueDate);
         if(existSuccsess){
             System.out.println("saved");
             
