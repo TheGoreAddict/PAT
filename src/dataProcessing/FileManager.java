@@ -66,32 +66,49 @@ public class FileManager {
         String todoID = " ";
         String assignmentID = " ";
         String subjectID = " ";
-        
+
         String[] fileNames = {"userData.txt", "TasksData.txt", "TodosData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
-        
+
         for (int i = 1; i < 5; i++) {
-            
+
             try {
                 File read = new File(fileNames[i]);
                 Scanner myReader = new Scanner(read);
-                
-                 while (myReader.hasNext()) {
 
-                String line = myReader.nextLine();
-                String[] details = line.split("#");
-                
-                myReader.close();
-                
-                 }
-                
+                while (myReader.hasNext()) {
+
+                    String line = myReader.nextLine();
+                    String[] details = line.split("#");
+
+                    myReader.close();
+                    
+                }
+
             } catch (FileNotFoundException ex) {
             }
-            
+
         }
 
     }
 
-    public static void finishedFileTaskAdd(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate) {
+    public static int makeTaskID()
+    {
+        int taskID = 0;
+        
+        /*
+        to find last used task for taskID number to create new taask withouit doublle booking 
+        
+        save taskdata file to 2d array
+                              - read tasksdata file to get counter number 
+                              - create array with counter number 
+                              - allows for instant access to last taskID created which gets us the most 
+                                recent to make new.
+        
+        */
+        return taskID;
+    }
+    
+    public static void finishedFileTaskAdd(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate, int taskID) {
 
         //
         //get taskID from userData.txt
