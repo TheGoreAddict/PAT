@@ -148,7 +148,7 @@ public class SubjectAdd extends javax.swing.JFrame {
             }
 
             file.println(line);
-
+            file.close();
         } catch (Exception e) {
         }
 

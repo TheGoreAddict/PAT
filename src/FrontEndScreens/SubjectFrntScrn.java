@@ -182,6 +182,9 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
         }
         
         jcmbSubjectList.addItem(n);
+        
+        
+        
     }//GEN-LAST:event_jcmbSubjectListMouseClicked
 
     private void subjectScreenBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectScreenBackButtonActionPerformed

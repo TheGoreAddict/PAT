@@ -172,11 +172,10 @@ public class SignUpPage extends javax.swing.JFrame {
             String w = txfPasword.getText();
 
             String[] words = {t, r, e, w};
-String line = " ";
+            String line = " ";
             int counter = 0;
             for (int i = 0; i = 4; i++) {
 
-                
                 line = line + words[i];
                 counter++;
 
@@ -188,13 +187,13 @@ String line = " ";
             file.println(line);
         } catch (IOexception ex) {
         }
-        
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new FrontPageLog_Sign_in_etc().setVisible(true);
             }
         });
-        
+
     }//GEN-LAST:event_btnSignUpFinishActionPerformed
 
     /**

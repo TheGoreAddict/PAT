@@ -4,6 +4,9 @@
  */
 package FrontEndScreens;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 /**
  *
  * @author glassiron
@@ -131,8 +134,47 @@ public class AssignmentAdd extends javax.swing.JFrame {
         //add assignment data to file 
         //bring back up subject front screen
         
+        try {
+            FileWriter write = new FileWriter("AssignmentsData.txt",true);
+            PrintWriter file = new PrintWriter(write);
+            
+            String is = txfAssignmentName.getText();
+            String w = txaDescription.getText();
+            int t = (int) spnImportance.getValue();
+            int d = (int) spnUrgancy.getValue();
+            
+            String ts = String.valueOf(t);
+            String ds = String.valueOf(d);
+            
+            String[] words = {is,w,ts,ds};
+            String line = " ";
+            int counter = 0;
+            for(int i = 0; i = 4; i++) {
+
+                line = line + words[i];
+                counter++;
+
+                if (counter < 3) {
+                    line = line + "#";
+                }
+            }
+
+            file.println(line);
+            file.close();
+            
+        } catch (Exception e) {
+        }
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SubjectFrntScrn().setVisible(true);
+            }
+        });
         
-        
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AssignmentAdd().setVisible(false);
+            }
+        });
     }//GEN-LAST:event_btnAssignmentAddActionPerformed
 
     /**
