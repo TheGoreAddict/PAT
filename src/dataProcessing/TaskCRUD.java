@@ -20,6 +20,7 @@ public class TaskCRUD {
         
         FileManager.existingFileCheck();
         FileManager.userDataCheckID();
+        
         FileManager.finishedFileTaskAdd(newTaskName, newTaskDescription, newTaskImportance, newTaskUrgency, newTaskDueDate);
         return true;
     }

@@ -4,6 +4,11 @@
  */
 package FrontEndScreens;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author glassiron
@@ -28,10 +33,12 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        subjectScrollScreenAssignments = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         subjectScreenBackButton = new javax.swing.JButton();
-        subjectList = new javax.swing.JComboBox<>();
-        subjectScrollScreenAssignments = new javax.swing.JScrollPane();
+        jcmbSubjectList = new javax.swing.JComboBox<>();
+        btnSubjectAdd = new javax.swing.JButton();
+        btnAssignmentAdd = new javax.swing.JButton();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -40,8 +47,37 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         subjectScreenBackButton.setText("<-");
+        subjectScreenBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subjectScreenBackButtonActionPerformed(evt);
+            }
+        });
 
-        subjectList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jcmbSubjectList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        jcmbSubjectList.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jcmbSubjectListMouseClicked(evt);
+            }
+        });
+        jcmbSubjectList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcmbSubjectListActionPerformed(evt);
+            }
+        });
+
+        btnSubjectAdd.setText("+");
+        btnSubjectAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubjectAddActionPerformed(evt);
+            }
+        });
+
+        btnAssignmentAdd.setText("Add Assignment");
+        btnAssignmentAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignmentAddActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -50,27 +86,27 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(subjectList, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(subjectScrollScreenAssignments, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jcmbSubjectList, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnSubjectAdd))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(subjectScreenBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                        .addGap(100, 100, 100)
+                        .addComponent(btnAssignmentAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(subjectScreenBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(subjectScreenBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAssignmentAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(subjectList, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 270, Short.MAX_VALUE))
-                    .addComponent(subjectScrollScreenAssignments))
-                .addContainerGap())
+                .addComponent(jcmbSubjectList, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnSubjectAdd)
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -92,6 +128,77 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jcmbSubjectListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcmbSubjectListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcmbSubjectListActionPerformed
+
+    private void btnSubjectAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubjectAddActionPerformed
+        
+         java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SubjectAdd().setVisible(true);
+            }
+        });
+        
+    }//GEN-LAST:event_btnSubjectAddActionPerformed
+
+    private void jcmbSubjectListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcmbSubjectListMouseClicked
+        
+        String n = "";
+        try {
+            File read = new File("SubjectsData.txt");
+            Scanner file = new Scanner(read);
+            
+            int f = jcmbSubjectList.getItemCount();
+            String[] items = null;
+            for (int i = 0; i < f; i++) {
+                String spon = jcmbSubjectList.getItemAt(i);
+                items[i] = spon;
+                
+            }
+             
+            
+            while(file.hasNext()){
+                //this is gionna say taht a subject exists every time its ran but it will add any new ones taht have been added to file
+                String list = file.nextLine();
+                String[] details = list.split("#");
+                n = details[0];
+                
+                for (int i = 0; i < f; i++) {
+                    if(n.equals(items[i])){
+                        JOptionPane.showMessageDialog(null, "This subject already exists");
+                    } else {
+                        jcmbSubjectList.addItem(n);
+                    }
+                }
+                
+                
+                
+                file.close();
+            }
+            
+        } catch (FileNotFoundException ex) {
+        }
+        
+        jcmbSubjectList.addItem(n);
+    }//GEN-LAST:event_jcmbSubjectListMouseClicked
+
+    private void subjectScreenBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subjectScreenBackButtonActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FrontPageLog_Sign_in_etc().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_subjectScreenBackButtonActionPerformed
+
+    private void btnAssignmentAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentAddActionPerformed
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AssignmentAdd().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_btnAssignmentAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,10 +236,12 @@ public class SubjectFrntScrn extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAssignmentAdd;
+    private javax.swing.JButton btnSubjectAdd;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JComboBox<String> subjectList;
+    private javax.swing.JComboBox<String> jcmbSubjectList;
     private javax.swing.JButton subjectScreenBackButton;
     private javax.swing.JScrollPane subjectScrollScreenAssignments;
     // End of variables declaration//GEN-END:variables

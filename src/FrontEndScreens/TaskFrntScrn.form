@@ -332,9 +332,9 @@
                                   <Component id="jLabel1" max="32767" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="lblImpotance1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblImpotance1" min="-2" pref="39" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="lblUrgancy" min="-2" max="-2" attributes="0"/>
+                                  <Component id="lblUrgancy" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
@@ -346,19 +346,19 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="txfAssignmentName" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <EmptySpace type="unrelated" max="32767" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   <Component id="lblImportance" max="32767" attributes="0"/>
                                   <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="txfDate" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="lblImpotance1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="lblUrgancy" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lblImpotance1" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
+                                      <Component id="lblUrgancy" alignment="3" min="-2" pref="14" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                               </Group>
@@ -380,14 +380,8 @@
                 <Component class="javax.swing.JLabel" name="lblImportance">
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblImpotance1">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel3"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="lblUrgancy">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="jLabel4"/>
-                  </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="txfDate">
                   <Events>

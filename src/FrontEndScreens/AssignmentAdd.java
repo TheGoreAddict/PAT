@@ -41,6 +41,11 @@ public class AssignmentAdd extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnAssignmentAdd.setText("+");
+        btnAssignmentAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAssignmentAddActionPerformed(evt);
+            }
+        });
 
         lblAssignmentName.setText("Name:");
 
@@ -121,6 +126,14 @@ public class AssignmentAdd extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAssignmentAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAssignmentAddActionPerformed
+        //add assignment data to file 
+        //bring back up subject front screen
+        
+        
+        
+    }//GEN-LAST:event_btnAssignmentAddActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.module.ModuleDescriptor.read;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -19,9 +20,10 @@ import java.util.Scanner;
  */
 public class FileManager {
 //Made all files cause they wernt existing (played god)
+// still have to do delete
 
     public static boolean existingFileCheck() {
-        String[] fileNames = {"userData.txt", "TasksData.txt", "TodosData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
+        String[] fileNames = {"userData.txt", "TasksData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
 
         try {
             File read = new File(fileNames[0]);
@@ -61,13 +63,12 @@ public class FileManager {
     }
 
     public static void userDataCheckID() {
-
-        String taskID = " ";
-        String todoID = " ";
+// what was this meant to do?
+        int taskID = 0;
         String assignmentID = " ";
         String subjectID = " ";
 
-        String[] fileNames = {"userData.txt", "TasksData.txt", "TodosData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
+        String[] fileNames = {"userData.txt", "TodosData.txt", "AssignmentsData.txt", "SubjectsData.txt"};
 
         for (int i = 1; i < 5; i++) {
 
@@ -81,7 +82,7 @@ public class FileManager {
                     String[] details = line.split("#");
 
                     myReader.close();
-                    
+
                 }
 
             } catch (FileNotFoundException ex) {
@@ -91,33 +92,16 @@ public class FileManager {
 
     }
 
-    public static int makeTaskID()
-    {
-        int taskID = 0;
-        
-        /*
-        to find last used task for taskID number to create new taask withouit doublle booking 
-        
-        save taskdata file to 2d array
-                              - read tasksdata file to get counter number 
-                              - create array with counter number 
-                              - allows for instant access to last taskID created which gets us the most 
-                                recent to make new.
-        
-        */
-        return taskID;
-    }
-    
-    public static void finishedFileTaskAdd(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate, int taskID) {
+    public static void finishedFileTaskAdd(String newTaskName, String newTaskDescription, int newTaskImportance, int newTaskUrgency, Date newTaskDueDate) {
 
-        //
-        //get taskID from userData.txt
+        //need to add the code for physically adding the task to the gui
+        //get taskID from userData.txt .no changing it to its own file which will be then written to array when "App" is opened
         try {
 
             FileWriter taskAddToFile = new FileWriter("TasksData.txt", true);
             PrintWriter file = new PrintWriter(taskAddToFile);
 
-            String fileLine = newTaskName + "#" + newTaskDescription + "#" + newTaskImportance + "#" + newTaskUrgency + "#" + newTaskDueDate + "#" + taskID;
+            String fileLine = newTaskName + "#" + newTaskDescription + "#" + newTaskImportance + "#" + newTaskUrgency + "#" + newTaskDueDate;
             file.println(fileLine);
             file.close();
 
@@ -131,20 +115,63 @@ public class FileManager {
          *
          */
     }
-}
 
 //save task to file
 //save taskID to user data for future recolection and being able to find files 
-/**
- * IDCounter shit
- *
- * Method to get IDNum(getter) -Passing in file Name as parameter and returns
- * the ID for file
- *
- *
- * method to set IDNum / add to it (setter) -Passing in file Name as parameter
- * and returns the ID for file
- *
- */
+    /**
+     * IDCounter stuff
+     *
+     * Method to get IDNum(getter) -Passing in file Name as parameter and
+     * returns the ID for file
+     *
+     *
+     * method to set IDNum / add to it (setter) -Passing in file Name as
+     * parameter and returns the ID for file
+     *
+     */
 // save coumt to files at userData.txt
 //another method to read task from file (give task ID then display (to prebuild UI?))
+
+    /*
+This is for subject Data now no longer task data
+
+what needs to be done 
+-Subject creation method
+-Subject addign method so its in the spinner on the gui
+- do i need to add a linking system between assignments and there subjects?
+     */
+    public static void subjectFileAdd(String subjectName, int importance, int urgancy) {
+//Writing to file to save added subject
+        try {
+            FileWriter subjectAddToFile = new FileWriter("SubjectsData.txt", true);
+            PrintWriter file = new PrintWriter(subjectAddToFile);
+
+            String fileLine = subjectName + "#" + importance + "#" + urgancy;
+            file.println(fileLine);
+            file.close();
+        } catch (IOexception ex) {
+        }
+    }
+
+    public static void subjectGUIAdd() {
+        // this will be called when add button is clicked 
+        //data valdation to check not adding the same subject?
+
+        try {
+            File read = new File("SubjectsData.txt");
+            Scanner file = new Scanner(read);
+
+            while (file.hasNext()) {
+                String line = file.nextLine();
+                String[] details = line.split("#");
+
+                String subjectAddtoGUI = details[0];
+            }
+        } catch (FileNotFoundException ex) {
+
+        }
+        SubjectFrntScrn.spnSubjectList.println(subjectAddtoGUI);
+
+    }
+
+}

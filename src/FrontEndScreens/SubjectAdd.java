@@ -4,6 +4,9 @@
  */
 package FrontEndScreens;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
+
 /**
  *
  * @author glassiron
@@ -41,6 +44,11 @@ public class SubjectAdd extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnAddSubject.setText("+");
+        btnAddSubject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddSubjectActionPerformed(evt);
+            }
+        });
 
         lblSubjectName.setText("Subject Name:");
 
@@ -109,6 +117,48 @@ public class SubjectAdd extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddSubjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddSubjectActionPerformed
+        // how do i add to the spinner in SubjectFrntScrn(once saved to file i can read it in and add IN subjectfrntscreen instead of trying to passs through and going through file manager)
+        // add data to subject file 
+        // add data to subject frnt screen
+
+        try {
+            FileWriter write = new FileWriter("SubjectsData.txt", true);
+            PrintWriter file = new PrintWriter(write);
+
+            String i = txfSubjectName.getText();
+            int wt = (int) spnImportance.getValue();
+            int d = (int) spnUrgancy.getValue();
+
+            String wts = String.valueOf(wt);
+            String ds = String.valueOf(d);
+
+            String[] words = {i, wts, ds};
+            String line = " ";
+            int counter = 0;
+            for (int i = 0; i = 3; i++) {
+
+                line = line + words[i];
+                counter++;
+
+                if (counter < 2) {
+                    line = line + "#";
+                }
+            }
+
+            file.println(line);
+
+        } catch (Exception e) {
+        }
+
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new SubjectFrntScrn().setVisible(true);
+            }
+        });
+
+    }//GEN-LAST:event_btnAddSubjectActionPerformed
 
     /**
      * @param args the command line arguments
